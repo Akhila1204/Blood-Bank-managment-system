@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<section class="logins py-5">
+    <div class="container py-xl-5 py-lg-3">
+		<div class="title-section mb-md-5 mb-4" style="text-align: center;">
+			<h3 class="w3ls-title text-uppercase text-dark font-weight-bold" style="color: #333; font-size: 24px; margin-bottom: 10px;">Add Category</h3>
+			<hr style="width: 50%; margin: 0 auto; background-color: #007bff;">
+		</div>
+		
+		
+        <div class="login px-sm-12" style="width: 50%; margin: 0 auto; background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); padding: 30px;">
+
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group row">
+                    <div class="col-md-12">
+                        <label style="font-size: 18px; color: #555;">Category Name</label>
+                        <input type="text" class="form-control" name="name" required="" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: 100%; box-sizing: border-box;">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary submit mt-4" style="background-color: #007bff; color: #fff; padding: 10px 15px; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">Add Category</button>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- //register -->
+
+{% endblock %}

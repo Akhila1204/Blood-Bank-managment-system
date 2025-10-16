@@ -1,0 +1,13 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block body %}
+<h2>List of Hospitals</h2>
+<ul>
+    {% for hospital in hospitals_list %}
+        <li>
+            <a href="{% url 'hospital_detail' hospital.id %}">{{ hospital.name }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,152 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<style>
+	    /* CSS styles for the registration form */
+body {
+        /* Apply background image to the entire body */
+        background-image: url("{% static 'img/register.jpg' %}");
+        background-size: contain;
+    }
+
+.logins {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 110vh;
+}
+
+.container-login{
+    background-color: #d0e9f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+.title-section {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.btn-primary {
+    width: 20%;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+	align-items: center;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.text-center {
+    text-align: center;
+
+}
+</style>
+	<!-- register -->
+
+
+	<section class="logins py-5">
+		<div class = "container-login">
+		<div class="container py-xl-5 py-lg-3">
+			<div class="title-section mb-md-5 mb-4">
+				<h6 class="w3ls-title-sub"></h6>
+				<center><h3 class="w3ls-title text-uppercase text-dark font-weight-bold">Register Now</h3></center>
+			</div><hr/>
+			<div class="login px-sm-12" style="width:100%">
+				<form action="" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<div class="form-group row">
+						<div class="col-md-6">
+						<label>First Name</label>
+						<input type="text" class="form-control" name="fname" placeholder="First Name" required="">
+						</div>
+						<div class="col-md-6">
+						<label>Last Name</label>
+						<input type="text" class="form-control" name="lname" placeholder="Last Name" required="">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-6">
+						<label>Username</label>
+						<input type="text" class="form-control" name="uname" placeholder="Username" required="">
+						</div>
+						<div class="col-md-6">
+						<label>Password</label>
+						<input type="password" class="form-control" name="pwd" placeholder="Password" required="">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-6">
+						<label>Email</label>
+						<input type="email" class="form-control" name="email" placeholder="Enter Email" required="">
+						</div>
+						<div class="col-md-6">
+						<label>Contact</label>
+						<input type="text" class="form-control" name="contact" placeholder="Enter Contact" required="">
+						</div>
+					</div>
+					<div class="form-group row">
+						<div class="col-md-6">
+						<label>Date Of Birth</label>
+						<input type="date" class="form-control" name="dob" placeholder="" required="">
+						</div>
+						<div class="col-md-6">
+						<label>Upload Your Prescription</label>
+						<input type="file" class="form-control" name="image" required="">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<div class="col-md-6">
+						<label class="mb-2">Address</label>
+						<input type="text" class="form-control" name="add" id="password1" placeholder="Enter Address" required="">
+						</div>
+						<div class="col-md-6">
+						<label>Blood Group</label>
+						<div class="form-control">
+							<select name="group" class="form-control" style="margin-right:4%" required="">
+								<option>Choose your blood group</option>
+								{% for i in cat %}
+								<option value="{{i.id}}">{{i.name}}</option>
+								{% endfor %}
+							</select>
+							
+						</div>
+					</div>
+
+					</div>
+					<center>
+					<button type="submit" class="btn btn-primary submit mt-4">Register</button></center>
+					<p class="text-center mt-5">
+						<a href="#" style="color: black;"><B>By clicking Register, I agree to your terms</B></a>
+					</p>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+	<!-- //register -->
+
+{% endblock %}

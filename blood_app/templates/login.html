@@ -1,0 +1,98 @@
+
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+{% if error == "pat1" %}
+<script>
+    alert('logged in successfully');
+    window.location="{% url 'patient_home' %}";
+</script>
+{% endif %}
+<style>
+/* Center the form vertically and horizontally */
+.logins {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 110vh;
+
+
+}
+
+/* Form styles */
+.login-wrapper {
+  position: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  /* background: #d0e9f4; */
+  border-radius: 8px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 5); */
+  /* background-color: bisque; */
+}
+.login-container {
+    background-image: url("{% static 'img/user.jpg' %} ");
+	/* background-color: azure; */
+    background-size: cover; /* Adjust the image size to cover the container */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    text-align: center; /* Center-align text inside the container */
+}
+
+
+
+.login-wrapper form {
+  margin-top: 20px;
+  background: #eaedee;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+  
+}
+
+.btn-primary {
+  width: 100%;
+}
+
+
+
+</style>
+
+
+	<!-- login -->
+	<section class="logins py-5">
+        <div class="container py-xl-5 py-lg-3 login-container">
+            <!-- Title Section -->
+            <div class="title-section mb-md-5 mb-4">
+                <!-- Title for Login -->
+                <h3 class="w3ls-title text-uppercase text-dark font-weight-bold"><i class="fas fa-user"></i><b>User Login</b></h3>
+            </div>
+            <hr/>
+            <!-- Login Form Wrapper -->
+			<center>
+            <div class="login px-sm-4 mx-auto mw-100 login-wrapper">
+                <form class="login-wrapper" action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" class="form-control" name="uname" placeholder="Enter Username" required="">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your Detail with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" name="pwd" placeholder="Enter Your Password" required="">
+                    </div>
+                    <button type="submit" class="btn btn-primary submit mt-4">Login</button>
+                    <p class="text-center mt-5">
+                        <a href="{% url 'signup' %}"> Don't have an Account? Register here</a>
+                    </p>
+                </form>
+            </div></center>
+        </div>
+    </section>
+	<!-- //login -->
+{% endblock %}
+
