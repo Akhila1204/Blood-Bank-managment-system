@@ -28,7 +28,11 @@
             <strong>Your Prescription:</strong>
         </div>
         <div class="col-md-6">
-            <img src="{{pro.image.url}}" style="width:100px;height:130px"></img>
+            {% if pro.image %}
+            <img src="{{pro.image.url}}" style="width:100px;height:130px;object-fit:cover;border-radius:4px;">
+            {% else %}
+            <span class="text-muted">No Image uploaded</span>
+            {% endif %}
         </div></div><hr>
 
     <div class="row">

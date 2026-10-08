@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-8b255$dr9ub&ehik^1pysy2@1n7$1km@42y^(@clv#z+$gl36%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+LOGIN_URL = 'login'
 
 
 # Application definition
@@ -74,22 +75,34 @@ WSGI_APPLICATION = 'Blood_Bank.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'py_bloodbank', # Database name
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+try:
+    import MySQLdb
+    _test_conn = MySQLdb.connect(
+        host='localhost',
+        port=3306,
+        user='root',
+        passwd='root',
+        db='py_bloodbank',
+        connect_timeout=2
+    )
+    _test_conn.close()
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'py_bloodbank',
+            'USER': 'root',
+            'PASSWORD': 'root',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
     }
-}
+except Exception:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

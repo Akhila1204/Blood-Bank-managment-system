@@ -1,0 +1,74 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<section id="gallery" class="gallery" style="margin-top: 80px; padding: 60px 0;">
+    <div class="container">
+
+        <div class="section-title text-center mb-5">
+            <h2 style="font-weight: bold; color: #E6120E; font-size: 36px;">Photo Gallery</h2>
+            <p style="color: #666; font-size: 18px; max-width: 800px; margin: 15px auto;">
+                Highlights from our blood donation camps, awareness drives, and partner medical centers.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="gallery-item shadow-sm rounded overflow-hidden">
+                    <img src="{% static 'img/gallery/gallery-1.jpg' %}" alt="Blood Donation Drive" class="img-fluid" style="width: 100%; height: 260px; object-fit: cover;">
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="gallery-item shadow-sm rounded overflow-hidden">
+                    <img src="{% static 'img/gallery/gallery-2.jpg' %}" alt="Donation Camp" class="img-fluid" style="width: 100%; height: 260px; object-fit: cover;">
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="gallery-item shadow-sm rounded overflow-hidden">
+                    <img src="{% static 'img/gallery/gallery-3.jpg' %}" alt="Medical Screening" class="img-fluid" style="width: 100%; height: 260px; object-fit: cover;">
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="gallery-item shadow-sm rounded overflow-hidden">
+                    <img src="{% static 'img/gallery/gallery-4.jpg' %}" alt="Blood Storage" class="img-fluid" style="width: 100%; height: 260px; object-fit: cover;">
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="gallery-item shadow-sm rounded overflow-hidden">
+                    <img src="{% static 'img/gallery/gallery-5.jpg' %}" alt="Voluntary Donor" class="img-fluid" style="width: 100%; height: 260px; object-fit: cover;">
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="gallery-item shadow-sm rounded overflow-hidden">
+                    <img src="{% static 'img/gallery/gallery-6.jpg' %}" alt="Hospital Transfusion" class="img-fluid" style="width: 100%; height: 260px; object-fit: cover;">
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="gallery-item shadow-sm rounded overflow-hidden">
+                    <img src="{% static 'img/gallery/gallery-7.jpg' %}" alt="Donor Recognition" class="img-fluid" style="width: 100%; height: 260px; object-fit: cover;">
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="gallery-item shadow-sm rounded overflow-hidden">
+                    <img src="{% static 'img/gallery/gallery-8.jpg' %}" alt="Camp Volunteers" class="img-fluid" style="width: 100%; height: 260px; object-fit: cover;">
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="gallery-item shadow-sm rounded overflow-hidden">
+                    <img src="{% static 'img/gallery/metro_blood_bank.jpeg' %}" alt="Partner Blood Bank" class="img-fluid" style="width: 100%; height: 260px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

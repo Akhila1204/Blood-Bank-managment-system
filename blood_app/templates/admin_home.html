@@ -1,419 +1,176 @@
-
 {% extends 'index.html' %}
-{% comment %} 
 {% load static %}
 {% block body %}
 
-<style>
-.glow {
-  font-size: 80px;
-  color: #fff;
-  text-align: center;
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 1s ease-in-out infinite alternate;
-}
-
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
-  }
-
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
-  }
-}
-
-/* Rounded border */
-hr.rounded {
-  border-top: 8px solid lightblue;
-  border-radius: 5px;
-}
-
-.prjdiv:hover{
-transform:translateY(-10px)
-}
-div .container1{
-
-width:100%;
-background-color:white;
-border-radius:8px;
-}
-h2, h4{
- padding:10Px;
-}
-
-</style>
-
-
-<div class="container-fluid" style="margin-top:8%;width:100%">
-    <div class="container-fluid">
-        <h1 align="center" style="font-weight:bold;font-family:roman">ADMIN DASHBOARD</h1><hr/>
-    </div>
-             <div class="row">
-
-			        <div class="col-md-3" ><a href="/donator_blood">
-						<div style="margin:1%;padding:10px;background:Darkslategrey;color:white;">
-						<h3 style="font-weight:bold;font-size:35px">{{donate}}</h3><br/>
-						        <h4 style="font-weight:bold;">Total Donator</h4>
-						        <p style="color:black">All access are given .</p>
-							</div></a>
-					</div>
-
-
-					<div class="col-md-3" ><a href="{% url 'view_user' %}">
-						    <div style="padding:10px;margin:1%;background:Green;color:white;">
-						        <h3 style="font-weight:bold;font-size:35px">{{data}}</h3><br/>
-						        <h4 style="font-weight:bold;">Total Users</h4>
-						        <p style="color:black">All access are given .</p>
-							</div></a>
-							</div>
-
-
-					<div class="col-md-3" >
-						<a href="/request_blood">
-					<div style="padding:10px;margin:1%;background:Red;color:white;">
-								<h3 style="font-weight:bold;font-size:35px">{{req}}</h3><br/>
-						        <h4 style="font-weight:bold;">Total Requestor</h4>
-						        <p style="color:black">All access are given .</p>
-					</div></a>
-					</div>
-
-						<div class="col-md-3" >
-							<a href="/all_order">
-								<div style="padding:10px;margin:1%;background:Lime;color:white;">
-						        <h3 style="font-weight:bold;font-size:35px">{{order}}</h3><br/>
-						        <h4 style="font-weight:bold;">Total Order</h4>
-						        <p style="color:black">All access are given .</p>
-</a>
-							</div>
-						</div>
-
-             </div>
-		</div>
-
-	<!--<div>
-      <div class="container">
-
-        <div class="row pt-5 mt-5 text-center">
-          <div>
-            <p style = "font-size : 30pt ; color : #FF0000 ; font-weight : bold">
-
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All Rights Reserved <span style = "color : brown">|</span> <span style = "color : #006400">This website is made with <i class="fas fa-heart icon-heart text-warning" aria-hidden="true"></i> by </span><a class= "glow" href="#" target="_blank" >Pankaj Panjwani</a>
-
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </div>-->
-{% endblock %} {% endcomment %}
-
-{% comment %} {% load static %}
-{% block body %}
-
-<style>
-    .container-fluid {
-        margin-top: 5%;
-    }
-
-    h1 {
-        text-align: center;
-        font-weight: bold;
-        font-family: 'Times New Roman', sans-serif;
-        margin-bottom: 20px;
-        color: #333;
-    }
-
-    hr.rounded {
-        border-top: 8px solid lightblue;
-        border-radius: 5px;
-    }
-
-    .row {
-        margin-top: 30px;
-    }
-
-    .col-md-3 {
-        text-align: center;
-    }
-
-    .dashboard-card {
-        margin: 1%;
-        padding: 20px;
-        background: #f8f9fa;
-        color: #333;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .dashboard-card:hover {
-        transform: translateY(-10px);
-    }
-
-    h3 {
-        font-size: 2.5em;
-        margin-bottom: 10px;
-        color: #007bff;
-    }
-
-    h4 {
-        font-size: 1.5em;
-        font-weight: bold;
-        margin-bottom: 5px;
-        color: #333;
-    }
-
-    p {
-        font-size: 1em;
-        color: #555;
-    }
-
-    /* Adjusted Colors */
-    .dashboard-card-users {
-        background: #5bc0de;
-    }
-
-    .dashboard-card-donator {
-        background: #5cb85c;
-    }
-
-    .dashboard-card-requestor {
-        background: #d9534f;
-    }
-
-    .dashboard-card-order {
-        background: #f0ad4e;
-    }
-</style>
-<div class="container-fluid" style="margin-top:8%;width:100%">
-<div class="container-fluid">
-	<h1 align="center" style="font-weight:bold;font-family:roman">ADMIN DASHBOARD</h1><hr/>
-</div>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3">
-            <a href="/donator_blood">
-                <div class="dashboard-card dashboard-card-donator">
-                    <h3>{{ donate }}</h3>
-                    <h4>Total Donator</h4>
-                    <p>All access is given.</p>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-md-3">
-            <a href="{% url 'view_user' %}">
-                <div class="dashboard-card dashboard-card-users">
-                    <h3>{{ data }}</h3>
-                    <h4>Total Users</h4>
-                    <p>All access is given.</p>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-md-3">
-            <a href="/request_blood">
-                <div class="dashboard-card dashboard-card-requestor">
-                    <h3>{{ req }}</h3>
-                    <h4>Total Requestor</h4>
-                    <p>All access is given.</p>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-md-3">
-            <a href="/all_order">
-                <div class="dashboard-card dashboard-card-order">
-                    <h3>{{ order }}</h3>
-                    <h4>Total Order</h4>
-                    <p>All access is given.</p>
-                </div>
-            </a>
-        </div>
-    </div>
-</div>
-</div>
-
-{% endblock %} {% endcomment %}
-
-
-{% load static %}
-{% block body %}
-
-<!-- Add this script tag for Chart.js -->
+<!-- Chart.js CDN -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-    .container-fluid {
-        margin-top: 5%;
-    }
-
-    h1 {
-        text-align: center;
-        font-weight: bold;
-        font-family: 'Times New Roman', sans-serif;
-        margin-bottom: 20px;
-        color: #333;
-    }
-
-    hr.rounded {
-        border-top: 8px solid lightblue;
-        border-radius: 5px;
-    }
-
-    .row {
-        margin-top: 30px;
-    }
-
-    .col-md-3 {
-        text-align: center;
+    .admin-container {
+        margin-top: 100px;
+        padding-bottom: 60px;
     }
 
     .dashboard-card {
-        margin: 1%;
-        padding: 20px;
-        background: #f8f9fa;
-        color: #333;
-        border-radius: 10px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out;
+        border-radius: 12px;
+        padding: 25px;
+        color: #fff;
+        margin-bottom: 25px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        text-align: center;
     }
 
     .dashboard-card:hover {
-        transform: translateY(-10px);
+        transform: translateY(-6px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
     }
 
-    h3 {
-        font-size: 2.5em;
-        margin-bottom: 10px;
-        color: #007bff;
-    }
-
-    h4 {
-        font-size: 1.5em;
-        font-weight: bold;
+    .dashboard-card h3 {
+        font-size: 42px;
+        font-weight: 700;
         margin-bottom: 5px;
-        color: #333;
+        color: #fff;
     }
 
-    p {
-        font-size: 1em;
-        color: #555;
+    .dashboard-card h4 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #fff;
     }
 
-    /* Adjusted Colors */
-    .dashboard-card-users {
-        background: #5bc0de;
+    .dashboard-card p {
+        font-size: 13px;
+        margin-bottom: 0;
+        opacity: 0.9;
+        color: #fff;
     }
 
-    .dashboard-card-donator {
-        background: #5cb85c;
+    .card-donators {
+        background: linear-gradient(135deg, #11998e, #38ef7d);
     }
 
-    .dashboard-card-requestor {
-        background: #d9534f;
+    .card-users {
+        background: linear-gradient(135deg, #2193b0, #6dd5ed);
     }
 
-    .dashboard-card-order {
-        background: #f0ad4e;
-    }
-    /* Your existing styles here */
-
-    canvas {
-        max-width: 100%;
-        height: auto;
+    .card-requestors {
+        background: linear-gradient(135deg, #eb3349, #f45c43);
     }
 
-    .small-chart-container {
-        max-width: 600px; /* Adjust the max-width as needed */
-        margin: 0 auto;
+    .card-orders {
+        background: linear-gradient(135deg, #f7971e, #ffd200);
+    }
+
+    .chart-box {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        max-width: 650px;
+        margin: 20px auto 0;
     }
 </style>
 
-<div class="container-fluid" style="margin-top: 8%; width: 100%">
-    <div class="container-fluid">
-        <h1 align="center" style="font-weight:bold;font-family:roman">ADMIN DASHBOARD</h1>
-        <hr />
+<div class="container admin-container">
+    <div class="text-center mb-5">
+        <h2 style="font-weight: bold; color: #E6120E; font-size: 36px; text-transform: uppercase;">Admin Dashboard</h2>
+        <p class="text-muted">Live overview of donors, requests, users, and orders</p>
+        <hr style="width: 200px; margin: 15px auto; border-top: 3px solid #E6120E;">
     </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3">
-                <a href="/donator_blood">
-                    <div class="dashboard-card dashboard-card-donator">
-                        <h3>{{ donate }}</h3>
-                        <h4>Total Donator</h4>
-                        <p>All access is given.</p>
-                    </div>
-                </a>
-            </div>
-    
-            <div class="col-md-3">
-                <a href="{% url 'view_user' %}">
-                    <div class="dashboard-card dashboard-card-users">
-                        <h3>{{ data }}</h3>
-                        <h4>Total Users</h4>
-                        <p>All access is given.</p>
-                    </div>
-                </a>
-            </div>
-    
-            <div class="col-md-3">
-                <a href="/request_blood">
-                    <div class="dashboard-card dashboard-card-requestor">
-                        <h3>{{ req }}</h3>
-                        <h4>Total Requestor</h4>
-                        <p>All access is given.</p>
-                    </div>
-                </a>
-            </div>
-    
-            <div class="col-md-3">
-                <a href="/all_order">
-                    <div class="dashboard-card dashboard-card-order">
-                        <h3>{{ order }}</h3>
-                        <h4>Total Order</h4>
-                        <p>All access is given.</p>
-                    </div>
-                </a>
-            </div>
-        
-            <!-- Your existing code for dashboard cards -->
-
-            <div class="dashboard-card small-chart-container">
-                <canvas id="myPieChart"></canvas>
-            </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <a href="{% url 'donator_blood' %}" style="text-decoration: none;">
+                <div class="dashboard-card card-donators">
+                    <i class="bi bi-heart-pulse-fill" style="font-size: 28px; margin-bottom: 5px;"></i>
+                    <h3>{{ donate }}</h3>
+                    <h4>Total Donors</h4>
+                    <p>Manage blood donation records</p>
+                </div>
+            </a>
         </div>
+
+        <div class="col-lg-3 col-md-6">
+            <a href="{% url 'view_user' %}" style="text-decoration: none;">
+                <div class="dashboard-card card-users">
+                    <i class="bi bi-people-fill" style="font-size: 28px; margin-bottom: 5px;"></i>
+                    <h3>{{ data }}</h3>
+                    <h4>Total Users</h4>
+                    <p>Manage user accounts</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <a href="{% url 'request_blood' %}" style="text-decoration: none;">
+                <div class="dashboard-card card-requestors">
+                    <i class="bi bi-droplet-fill" style="font-size: 28px; margin-bottom: 5px;"></i>
+                    <h3>{{ req }}</h3>
+                    <h4>Total Requests</h4>
+                    <p>Manage blood requests</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <a href="{% url 'all_order' %}" style="text-decoration: none;">
+                <div class="dashboard-card card-orders">
+                    <i class="bi bi-cart-check-fill" style="font-size: 28px; margin-bottom: 5px;"></i>
+                    <h3>{{ order }}</h3>
+                    <h4>Total Orders</h4>
+                    <p>Track blood delivery orders</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Analytics Chart -->
+    <div class="chart-box text-center">
+        <h4 style="font-weight: 700; color: #333; margin-bottom: 20px;">System Statistics Overview</h4>
+        <canvas id="myPieChart" width="400" height="400"></canvas>
     </div>
 </div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        var ctx = document.getElementById('myPieChart').getContext('2d');
+        var canvas = document.getElementById('myPieChart');
+        if (!canvas) return;
+        var ctx = canvas.getContext('2d');
 
-        var data = {
-            labels: ['Total Donors', 'Total Users', 'Total Requestors', 'Total Orders'],
-            datasets: [{
-                data: [
-  parseInt('{{ donate|default:"0" }}', 10),
-  parseInt('{{ data|default:"0" }}', 10),
-  parseInt('{{ req|default:"0" }}', 10),
-  parseInt('{{ order|default:"0" }}', 10)
-],
+        var totalDonors = parseInt('{{ donate|default:"0" }}', 10);
+        var totalUsers = parseInt('{{ data|default:"0" }}', 10);
+        var totalRequests = parseInt('{{ req|default:"0" }}', 10);
+        var totalOrders = parseInt('{{ order|default:"0" }}', 10);
 
-                backgroundColor: ['#5cb85c', '#007bff', '#d9534f', '#f0ad4e'],
-            }]
-        };
-
-        var myPieChart = new Chart(ctx, {
-            type: 'pie',
-            data: data,
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Total Donors', 'Total Users', 'Total Requests', 'Total Orders'],
+                datasets: [{
+                    data: [totalDonors, totalUsers, totalRequests, totalOrders],
+                    backgroundColor: ['#28a745', '#17a2b8', '#dc3545', '#ffc107'],
+                    hoverOffset: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 15,
+                            font: { size: 13 }
+                        }
+                    }
+                }
+            }
         });
     });
 </script>
-
 
 {% endblock %}

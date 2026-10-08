@@ -2,12 +2,6 @@
 {% extends 'index.html' %}
 {% load static %}
 {% block body %}
-{% if error == "pat1" %}
-<script>
-    alert('logged in successfully');
-    window.location="{% url 'patient_home' %}";
-</script>
-{% endif %}
 <style>
 /* Center the form vertically and horizontally */
 .logins {

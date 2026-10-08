@@ -2,14 +2,6 @@
 {% load static %}
 {% block body %}
 	<!-- register -->
-{% if error == "create" %}
-<script>
-    alert('Add a new Doctor Successfully');
-    window.location="{% url 'view_doctor' %}";
-</script>
-{% endif %}
-
-
 	<section class="logins py-5">
 		<div class="container py-xl-5 py-lg-3">
 			<div class="title-section mb-md-5 mb-4">

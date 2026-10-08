@@ -1,0 +1,66 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<section id="about" class="about" style="margin-top: 80px; padding: 60px 0;">
+    <div class="container">
+
+        <div class="section-title text-center mb-5">
+            <h2 style="font-weight: bold; color: #E6120E; font-size: 36px;">About Destiny Donor Services</h2>
+            <p style="color: #666; font-size: 18px; max-width: 800px; margin: 15px auto;">
+                Connecting generous donors with patients in urgent need. Every drop counts and saves a precious life.
+            </p>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="{% static 'img/about.jpg' %}" class="img-fluid rounded shadow" alt="About Destiny Blood Bank" style="width: 100%; object-fit: cover; max-height: 450px;">
+            </div>
+
+            <div class="col-lg-6">
+                <h3 style="color: #2c3e50; font-weight: 700; margin-bottom: 20px;">Dedicated to Saving Lives Every Day</h3>
+                <p style="line-height: 1.8; color: #555;">
+                    Destiny Donor Services is a comprehensive blood bank management platform designed to streamline blood donation, inventory tracking, and emergency requests. We bridge the gap between voluntary donors and hospitals to ensure timely availability of safe blood.
+                </p>
+
+                <div class="row mt-4">
+                    <div class="col-md-6 mb-3">
+                        <div class="p-3 border rounded bg-light">
+                            <h5 style="color: #E6120E; font-weight: 600;"><i class="bi bi-heart-pulse-fill me-2"></i> Safe & Screened</h5>
+                            <p class="mb-0 text-muted" style="font-size: 14px;">Every unit of blood undergoes comprehensive testing for safety and compatibility.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="p-3 border rounded bg-light">
+                            <h5 style="color: #007bff; font-weight: 600;"><i class="bi bi-clock-history me-2"></i> 24/7 Availability</h5>
+                            <p class="mb-0 text-muted" style="font-size: 14px;">Quick response matching system for critical emergency transfusion requirements.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="p-3 border rounded bg-light">
+                            <h5 style="color: #28a745; font-weight: 600;"><i class="bi bi-people-fill me-2"></i> Verified Donors</h5>
+                            <p class="mb-0 text-muted" style="font-size: 14px;">Active network of registered voluntary donors ready to donate when needed.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <div class="p-3 border rounded bg-light">
+                            <h5 style="color: #ffc107; font-weight: 600;"><i class="bi bi-shield-check me-2"></i> Transparent Orders</h5>
+                            <p class="mb-0 text-muted" style="font-size: 14px;">Real-time tracking of requests, blood units, delivery status, and history.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <a href="{% url 'donate_blood' %}" class="btn btn-danger px-4 py-2 me-2" style="background-color: #E6120E;">Donate Blood</a>
+                    <a href="{% url 'search_blood' %}" class="btn btn-outline-primary px-4 py-2">Find Blood</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

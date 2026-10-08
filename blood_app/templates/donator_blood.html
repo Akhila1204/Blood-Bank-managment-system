@@ -89,61 +89,7 @@
                         <button type="button" class="btn btn-primary pull-right">Approved</button>
                       </a>
                         </h1>
-                        <div id="myModal" class="modal">
-                          
-                          <!-- Modal content -->
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h2>Request for blood</h2>
-                              <span class="close">&times;</span>
-                              
-                            </div>
-                            <div class="modal-body">
-                              <div class="login px-sm-12" style="width:100%">
-                                <form action="{% if doctor %}/change_doctor/{{doctor.id}}/{% else %}/add_doctor{% endif %}" method="post" enctype="multipart/form-data">
-                                  {% csrf_token %}
-                                  
-                                  <div class="form-group row">
-                                    <div class="col-md-6">
-                                                    <label>Username</label>
-                                                    <input type="text" class="form-control" name="username" placeholder="Username" value="{{request.user.username}}" required readonly>
-                                    </div>
-                                    <div class="col-md-6">
-                                                    <label>Email</label>
-                                                    <input type="email" class="form-control" name="email" placeholder="Enter Email" required="" value="{{request.user.email}}" readonly>
-                                                </div>
-                                  </div>
-                                  
-                                  <div class="form-group row">
-                                    <div class="col-md-6">
-                                                    <label>Blood Group</label>
-                                                    <input type="text" class="form-control" name="bg" placeholder="Enter Blood Group">
-                                    </div>
-                                                <div class="col-md-6">
-                                                    <label>Place</label>
-                                                    <input type="text" class="form-control" name="place" placeholder="Enter Place" required>
-                                    </div>
-                                  </div>
-                                            <br>
-                                  <div class="form-group row">
-                                    <div class="col-md-12">
-                                                    <input type="checkbox" name="mycheck" id="mycheck" required>
-                                                    <label class="mb-2">I certify that the information I am about to provided is true and complete to
-                                                        the best of my knowledge. I am aware that this self declaration statement is
-                                                        subject to review and verification and if such information has been falsified I
-                                                        may be terminated from this organisation.</label>
-                                    </div>
-                                  </div>
-                                  
-                                  <button type="submit" class="btn btn-primary submit mt-4 pull-right">Register</button>
-                                </form>
-                              </div>
-                            </div>
-                            
-                          </div>
-                        
-                        </div>
-                         </div><hr>
+                    </div><hr>
                                 <table id="example" class="display" style="width:100%">
                                   <thead>
                                     <tr>
@@ -177,35 +123,5 @@
                           </tbody>
                       </table>
                   </div>
-
-
-<script>
-                    // Get the modal
-                    var modal = document.getElementById("myModal");
-                    
-                    // Get the button that opens the modal
-                    var btn = document.getElementById("myBtn");
-                    
-                    // Get the <span> element that closes the modal
-                    var span = document.getElementsByClassName("close")[0];
-                    
-                    // When the user clicks the button, open the modal 
-                    btn.onclick = function() {
-                      modal.style.display = "block";
-                    }
-                    
-                    // When the user clicks on <span> (x), close the modal
-                    span.onclick = function() {
-                      modal.style.display = "none";
-                    }
-                    
-                    // When the user clicks anywhere outside of the modal, close it
-                    window.onclick = function(event) {
-                      if (event.target == modal) {
-                        modal.style.display = "none";
-                      }
-                    }
-                    </script>
-
 
 {% endblock %}

@@ -12,8 +12,6 @@ Each member in a donor is given a user id and password, which identifies him uni
 <li><b>Acceptor Module:</b></li>
 This module contains the information about the acceptor. This module manages the acceptor information. Each member in the acceptor is given a user id and password, which identifies him uniquely. <br>
 
-## To clone this repository:<br>
-git clone -b master https://github.com/Aashi32/Blood-Bank-Management-System.git
 
 ## 1. Navigate to the project directory:
 cd Blood-Bank-Management-System

@@ -25,7 +25,13 @@
                                 <tr>
                                   <td>{{forloop.counter}}</td>
                                   <td>{{i.user.first_name}} {{i.user.last_name}}</td>
-                                  <td><img src="{{i.image.url}}" style="width:80px;height:80px"></td>
+                                  <td>
+                                    {% if i.image %}
+                                    <img src="{{i.image.url}}" style="width:60px;height:60px;object-fit:cover;border-radius:50%;">
+                                    {% else %}
+                                    <span class="text-muted">No Image</span>
+                                    {% endif %}
+                                  </td>
                                   <td>{{i.user.email}}</td>
                                   <td>{{i.contact}}</td>
                                   <td>{{i.address}}</td>

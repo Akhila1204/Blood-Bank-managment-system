@@ -5,18 +5,18 @@ class Category(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.name or "Unnamed Category"
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    contact = models.CharField(max_length=100, null=True)
-    address = models.CharField(max_length=100, null=True)
+    contact = models.CharField(max_length=100, null=True, blank=True)
+    address = models.CharField(max_length=100, null=True, blank=True)
     blood_group = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
-    dob = models.DateField(null=True)
-    image = models.FileField(null=True)
+    dob = models.DateField(null=True, blank=True)
+    image = models.FileField(null=True, blank=True)
 
     def __str__(self):
-        return self.user.username
+        return self.user.username if self.user else "Anonymous UserProfile"
 
 
 
@@ -30,7 +30,8 @@ class Blood_Donation(models.Model):
     active = models.BooleanField(null=True, blank=True, default=False)
 
     def __str__(self):
-        return self.user.user.username
+        username = self.user.user.username if (self.user and self.user.user) else "Unknown"
+        return f"{username} - {self.purpose or 'Blood Donation'}"
 
 class Order(models.Model):
     status = models.CharField(max_length=100, null=True, blank=True)
@@ -40,4 +41,5 @@ class Order(models.Model):
     created = models.DateTimeField(auto_now=True,null=True)
 
     def __str__(self):
-        return self.user.user.username
+        username = self.user.user.username if (self.user and self.user.user) else "Unknown"
+        return f"{username} - Order #{self.id}"

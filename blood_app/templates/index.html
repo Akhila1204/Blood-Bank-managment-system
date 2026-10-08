@@ -93,7 +93,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center" style="background-color: #FFFFFF">
 
-      <h1 class="logo me-auto"><a href="index.html"><img src="../static/img/new_logo.jpg" width="50" height="2200" style="margin-right: 10px;">Destiny Donor Services</a></h1>
+      <h1 class="logo me-auto"><a href="{% url 'home' %}"><img src="{% static 'img/new_logo.jpg' %}" width="45" height="45" style="margin-right: 10px; border-radius: 50%; vertical-align: middle;">Destiny Donor Services</a></h1>
 
       {% if request.user.is_staff %}
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -159,10 +159,10 @@
       
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="/#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="/#about">About</a></li>
-          <li><a class="nav-link scrollto" href="/#hospitals">Hospitals & Blood Banks</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'home' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'about' %}">About</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'gallery' %}">Gallery</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'contact' %}">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -231,8 +231,9 @@
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Join Our Newsletter</h4>
             <p>Destiny Donor Services needs include health promotion, preventive care (immunization, general health screening).</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+            <form action="{% url 'contact' %}" method="post">
+              {% csrf_token %}
+              <input type="email" name="Email" placeholder="Enter your email" required><input type="submit" value="Subscribe">
             </form>
           </div>
 

@@ -103,7 +103,7 @@
                             </div>
                             <div class="modal-body">
                               <div class="login px-sm-12" style="width:100%">
-                                <form action="{% if doctor %}/change_doctor/{{doctor.id}}/{% else %}/add_doctor{% endif %}" method="post" enctype="multipart/form-data">
+                                <form action="{% url 'request_blood' %}" method="post">
                                   {% csrf_token %}
                                   
                                   <div class="form-group row">
